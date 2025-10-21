@@ -25,5 +25,5 @@ The **Internship Management System** is a full-stack web application designed to
 
 1. **Clone the repository**
 ```bash
-git clone <your-repo-link>
+git clone <repo-link>
 cd internship-management-system
