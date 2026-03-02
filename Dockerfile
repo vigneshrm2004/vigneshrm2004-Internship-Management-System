@@ -21,7 +21,7 @@ WORKDIR /app/backend
 
 # Install backend dependencies
 COPY backend/package*.json ./
-RUN npm install --production
+RUN npm install --production && npm install node-cron
 
 # Copy backend source
 COPY backend/ ./
