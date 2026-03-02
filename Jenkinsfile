@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Build Backend') {
             steps {
-                sh 'cd backend && npm run build' // Example build command
+                sh 'cd backend && node server.js' // Example build command
                 // or sh 'mvn package' for Java Maven project
             }
         }
