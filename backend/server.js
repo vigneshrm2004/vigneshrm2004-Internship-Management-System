@@ -19,8 +19,8 @@ app.use('/api/coordinators', coordinatorRoutes);
 // Serve React frontend
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ⚡ Correct catch-all route for React
-app.get('/:path(*)', (req, res) => {
+// ⚡ Catch-all route compatible with Node 20
+app.get('/:path(.*)', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
