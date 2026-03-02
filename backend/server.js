@@ -12,15 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect MongoDB
-mongoose.connect('mongodb://localhost:27017/internshipDB', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
 
-// API routes
-app.use('/api/auth', authRoutes);
-app.use('/api/students', studentRoutes);
-app.use('/api/coordinators', coordinatorRoutes);
 
 // ------------------------------
 // Serve React frontend
