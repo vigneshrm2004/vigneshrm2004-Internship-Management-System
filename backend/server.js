@@ -20,7 +20,7 @@ app.use('/api/coordinators', coordinatorRoutes);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ⚡ Catch-all route compatible with Node 20
-app.get('/:path(.*)', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
