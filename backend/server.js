@@ -37,12 +37,13 @@ async function getAllRecords() {
   }
 }
 
-getAllRecords();
+
 
 
 cron.schedule('*/2 * * * *', () => {
   console.log('Cron job running every 2 minutes');
   // Your task: update database, etc.
+  getAllRecords();
 });
 
 
