@@ -26,7 +26,18 @@ const pool = new Pool({
   port: 5433    
 });
 
+async function getAllRecords() {
+  try {
+    const result = await pool.query('SELECT * FROM users');
+    console.log(result.rows); // array of all records
+  } catch (err) {
+    console.error('Error executing query', err);
+  } finally {
+    await pool.end(); // close connection
+  }
+}
 
+getAllRecords();
 
 
 cron.schedule('*/2 * * * *', () => {
