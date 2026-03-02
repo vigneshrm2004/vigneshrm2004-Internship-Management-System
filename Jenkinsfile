@@ -37,8 +37,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Deployment steps, e.g., using Docker or SSH to transfer files
-                // sh 'docker build -t myapp-image .'
-                // sh 'docker run -d -p 8080:80 myapp-image'
+                 sh 'docker build -t fullstack-app .'
+                 sh 'docker run -p 5000:5000 fullstack-app'
                 echo 'Deploying application...'
             }
         }
