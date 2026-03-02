@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const cron = require('node-cron');
 const authRoutes = require('./routes/authRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const coordinatorRoutes = require('./routes/coordinatorRoutes');
@@ -15,6 +15,26 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/coordinators', coordinatorRoutes);
+
+
+const { Pool } = require('pg');
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'jenkins',
+  password: 'tiger',
+  port: 5433    
+});
+
+
+
+
+cron.schedule('*/2 * * * *', () => {
+  console.log('Cron job running every 2 minutes');
+  // Your task: update database, etc.
+});
+
+
 
 // Serve React frontend
 app.use(express.static(path.join(__dirname, 'public')));
